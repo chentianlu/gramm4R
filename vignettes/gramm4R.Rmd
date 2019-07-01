@@ -1,0 +1,62 @@
+---
+title: "gramm4R"
+author: "Mengci Li, Dandan Liang, Tianlu Chen and Wei Jia"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{gramm4R}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+We designed and developed a new strategy, Generalized coRrelation analysis for Metabolome and Microbiome (GRaMM), for inter-correlation pairs discovery among metabolome and microbiome. GRaMM gives considerations to the different characteristics of omics data, the effect of covariates, and the balance of linear and nonlinear correlations, by integrating the classical linear regression, the newly reported maximum information coefficient (MIC), and the centered log-ratio transformation (CLR) algorithms. 
+
+ 4 functions of the package of gramm4R:
+ `Gramm` ,`naiveGramm`, `nlfitGramm` ,`preGramm`
+ 
+ 
+## `preGramm`: A function to reproccess the input data of metabolome and microbiome. Missing values may be imputed and filled. Metabolome data and microbiomedata may be normalized and transformed by logarithm transformation and centered log-ratio (CLR) algorithm.
+
+```{r,warning = FALSE,message = FALSE}
+library("gramm4R")
+data("metabolites")
+data("microbes")
+preGramm(metabolites,microbes)
+```
+
+
+## `naiveGramm`: A function to test the association among metabolites and microbes. Using linear (linear regression) or nonlinear (Maximal Information Coefficient) methods.
+
+```{r,warning = FALSE,message = FALSE}
+data("metabolites")
+data("microbes")
+data("covariates")
+naiveGramm(metabolites,microbes,covariates)
+```
+r: Matrix of correlation coefficients.
+p: Matrix of correlation p values.
+type: Matrix of correlation methods for computing (linear or nonlinear).
+  
+  
+## `nlfitGramm` : Plot, draw regression line and confidence interval, and show regression equation, R-square and P-value. The function includes the following models in the latest version: "line2P" (formula as: y=a*x+b), "line3P" (y=a*x^2+b*x+c), "log2P" (y=a*ln(x)+b), "exp2P" (y=a*exp(b*x)),"exp3P" (y=a*exp(b*x)+c), "power2P" (y=a*x^b), "power3P" (y=a*x^b+c), and "S" (y=a/(1+exp((x-b)/c))). 
+
+```{r,warning = FALSE,message = FALSE,results = "hide"}
+data("metabolites")
+data("microbes")
+
+nlfitGramm(metabolites,microbes)
+```
+Of each correlation pairs the figure who has the highest R-square among these models will be saved in a "pdf" file at working dirctory.
+
+
+## `Gramm`: A function of the entire strategy to get the association between metabolites and microbes, using linear or nonlinear methods, and plot the regression figures.
+
+```{r,warning = FALSE,message = FALSE,results = "hide"}
+data("metabolites");data("microbes");data("covariates")
+Gramm(metabolites,microbes,covariates)
+```
+A file named  "R value top 10 pairs.pdf" will be created automatically (corrlation coefficient top 10 pairs) .
+
+
+
+
