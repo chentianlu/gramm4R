@@ -1,0 +1,16 @@
+Package: gramm4R
+Type: Package
+Title: Generalized correlation analysis and model construction strategy for metabolome and microbiome
+Version: 0.99.0
+Author: Mengci Li, Dandan Liang, Tianlu Chen and Wei Jia
+Maintainer: Tianlu Chen <chentianlu@sjtu.edu.cn>
+Description: Generalized Correlation Analysis for Metabolome and Microbiome (GRaMM), for inter-correlation pairs discovery among metabolome and microbiome.
+License: GPL-2
+Encoding: UTF-8
+biocViews: GraphAndNetwork,Microbiome
+Depends: R (>= 3.6.0)
+LazyData: true
+Imports: basicTrendline,investr,minerva,psych,grDevices, graphics, stats,DelayedArray,SummarizedExperiment
+VignetteBuilder: knitr
+Suggests: knitr,
+    rmarkdown
