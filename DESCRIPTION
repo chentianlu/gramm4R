@@ -10,7 +10,7 @@ Encoding: UTF-8
 biocViews: GraphAndNetwork,Microbiome
 Depends: R (>= 3.6.0)
 LazyData: true
-Imports: basicTrendline,investr,minerva,psych,grDevices, graphics, stats,DelayedArray,SummarizedExperiment
+Imports: basicTrendline,investr,minerva,psych,grDevices, graphics, stats,DelayedArray,SummarizedExperiment,DMwR,phyloseq
 VignetteBuilder: knitr
 Suggests: knitr,
     rmarkdown
