@@ -14,6 +14,10 @@ We designed and developed a new strategy, Generalized coRrelation analysis for M
  4 functions of the package of gramm4R:
  `Gramm` ,`naiveGramm`, `nlfitGramm` ,`preGramm`
  
+Install the latest version of this package by entering the following in R:
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("gramm4R") 
  
 ## `preGramm`: A function to reproccess the input data of metabolome and microbiome. Missing values may be imputed and filled. Metabolome data and microbiomedata may be normalized and transformed by logarithm transformation and centered log-ratio (CLR) algorithm.
 
@@ -56,7 +60,6 @@ data("metabolites");data("microbes");data("covariates")
 Gramm(metabolites,microbes,covariates)
 ```
 A file named  "R value top 10 pairs.pdf" will be created automatically (corrlation coefficient top 10 pairs) .
-
 
 
 
